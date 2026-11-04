@@ -1,0 +1,14 @@
+:root {
+  font: 15px/1.45 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+body {
+  margin: 0;
+}
+
+code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9em;
+}

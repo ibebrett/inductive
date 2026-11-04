@@ -1,0 +1,18 @@
+version: "0.5"
+
+processes:
+  backend:
+    command: uv run moleculedb
+    working_dir: ./backend
+    readiness_probe:
+      http_get:
+        host: 127.0.0.1
+        port: 8000
+        path: /api/health
+
+  frontend:
+    command: pnpm dev
+    working_dir: ./frontend
+    depends_on:
+      backend:
+        condition: process_healthy

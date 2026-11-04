@@ -1,0 +1,3 @@
+# Datasets are downloaded / generated locally (e.g. `just esol`), never committed.
+*
+!.gitignore

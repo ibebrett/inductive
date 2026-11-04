@@ -1,0 +1,91 @@
+.viewer {
+  display: flex;
+  height: 100vh;
+  text-align: left;
+}
+
+.graph {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.toolbar label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.panel {
+  width: 360px;
+  padding: 1rem;
+  overflow-y: auto;
+  border-left: 1px solid #ddd;
+  background: white;
+  color: #222;
+}
+
+.panel h2 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.panel h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+.neighbors {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.neighbors li {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.neighbors li:hover {
+  background: #f3f3f3;
+}
+
+.neighbors code {
+  margin-right: 0.5rem;
+}
+
+.up {
+  color: #1a7f37;
+  font-weight: 600;
+}
+
+.down {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.muted {
+  color: #666;
+  font-size: 13px;
+}
+
+.error {
+  color: #c62828;
+}
