@@ -15,6 +15,8 @@ SQLite file directly; add what you need here instead.
 (e.g. [*:1][H] >> [*:1]Cl has size 1), a good proxy for how small a change is.
 """
 
+from __future__ import annotations
+
 import sqlite3
 import subprocess
 import sys

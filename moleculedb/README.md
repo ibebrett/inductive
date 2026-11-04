@@ -14,6 +14,7 @@ moleculedb/
 
 - `moleculedb.mmp`: **the only interface to mmpdb.** Builds databases (`build_database`) and queries them (`MMPDatabase`: compounds, pairs, neighbors, networkx graph). Nothing else calls the mmpdb CLI, imports `mmpdblib`, or reads the SQLite file; add what you need here.
 - `moleculedb.esol`: ESOL dataset (CSV paths, compound names, `build()`), on top of `mmp`.
+- `moleculedb.ml`: ML experiments: splits, hand-crafted features (Morgan, descriptors), a message-passing GNN, and `python -m moleculedb.ml.benchmark` (`just bench`).
 - `moleculedb.api`: FastAPI routes, e.g. `GET /api/esol/graph?max_size=N`.
 
 ## Dependencies
@@ -31,11 +32,12 @@ moleculedb/
 
 ### Backend (`backend/pyproject.toml`)
 
-- Python 3.15 (pinned in the repo-root `.python-version`)
+- Python 3.13 (pinned in the repo-root `.python-version`; 3.15 broke PyTorch Geometric). Install with `uv python install 3.13` if missing.
 - [FastAPI](https://fastapi.tiangolo.com/) + [uvicorn](https://www.uvicorn.org/): API server
 - [RDKit](https://www.rdkit.org/): cheminformatics
 - [mmpdb](https://github.com/rdkit/mmpdb): matched molecular pair analysis (CLI: `uv run mmpdb ...`)
 - [networkx](https://networkx.org/): matched-pair graph
+- ML group (`ml`): CPU-only [PyTorch](https://pytorch.org/), [PyTorch Geometric](https://pyg.org/), scikit-learn
 - Dev: pytest, httpx, ruff, jupyterlab, pandas
 
 ### Frontend (`frontend/package.json`)
@@ -71,4 +73,5 @@ just build
 just data       # download datasets into data/
 just esol       # build the ESOL mmpdb database (downloads first)
 just notebook   # JupyterLab on notebooks/
+just bench      # ESOL: Morgan/descriptor random forests vs GNN
 ```

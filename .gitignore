@@ -11,3 +11,6 @@ wheels/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Agent skill files installed by tools (e.g. modal setup)
+.agents/
